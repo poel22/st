@@ -167,7 +167,7 @@ static int xloadcolor(int, const char *, Color *);
 static int xloadfont(Font *, FcPattern *);
 static void xloadfonts(char *, double);
 static int xloadsparefont(FcPattern *, int);
-static void xloadsparefonts(void);
+/* static void xloadsparefonts(void); */
 static void xunloadfont(Font *);
 static void xunloadfonts(void);
 static void xsetenv(void);
@@ -316,7 +316,7 @@ zoomabs(const Arg *arg)
 {
 	xunloadfonts();
 	xloadfonts(usedfont, arg->f);
-	xloadsparefonts();
+	/* xloadsparefonts();*/
 	cresize(0, 0);
 	redraw();
 	xhints();
@@ -1048,7 +1048,7 @@ xloadsparefont(FcPattern *pattern, int flags)
 	return 0;
 }
 
-void
+/*void
 xloadsparefonts(void)
 {
 	FcPattern *pattern;
@@ -1059,12 +1059,12 @@ xloadsparefonts(void)
 	if (frclen != 0)
 		die("can't embed spare fonts. cache isn't empty");
 
-	/* Calculate count of spare fonts */
+	*//* Calculate count of spare fonts *//*
 	fc = sizeof(font2) / sizeof(*font2);
 	if (fc == 0)
 		return;
 
-	/* Allocate memory for cache entries. */
+	*//* Allocate memory for cache entries. *//*
 	if (frccap < 4 * fc) {
 		frccap += 4 * fc - frccap;
 		frc = xrealloc(frc, frccap * sizeof(Fontcache));
@@ -1117,7 +1117,7 @@ xloadsparefonts(void)
 
 		FcPatternDestroy(pattern);
 	}
-}
+} */
 
 void
 xunloadfont(Font *f)
@@ -1210,7 +1210,7 @@ xinit(int cols, int rows)
 	xloadfonts(usedfont, 0);
 
 	/* spare fonts */
-	xloadsparefonts();
+	/* xloadsparefonts(); */
 
 	/* colors */
 	xw.cmap = XCreateColormap(xw.dpy, parent, xw.vis, None);

@@ -6,8 +6,8 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 static char *font = "Inconsolata for Powerline:pixelsize=30:antialias=true:autohint=true";
-static char *font2[] = {"Inconsolata for Powerline:pixelsize=30:antialias=true:autohint=true" };
-// static char *font2[] = { "NotoColorEmoji:pixelsize=14:antialias=true:autohint=true" };
+/* static char *font2[] = {"Inconsolata for Powerline:pixelsize=4:antialias=true:autohint=true" }; */
+/* static char *font2[] = { "NotoColorEmoji:pixelsize=14:antialias=true:autohint=true" }; */
 static int borderpx = 2;
 
 /*
@@ -26,8 +26,8 @@ char *stty_args = "stty raw pass8 nl -echo -iexten -cstopb 38400";
 char *vtiden = "\033[?6c";
 
 /* Kerning / character bounding-box multipliers */
-static float cwscale = 1.0;
-static float chscale = 1.0;
+static float cwscale = 1;
+static float chscale = 1.1;
 
 /*
  * word delimiter string
@@ -164,7 +164,7 @@ static unsigned int defaultattr = 11;
  */
 ResourcePref resources[] = {
 		{ "font",         STRING,  &font },
-		{ "fontalt0",     STRING,  &font2[0] },
+		/* { "fontalt0",     STRING,  &font2[0] }, */
 		{ "color0",       STRING,  &colorname[0] },
 		{ "color1",       STRING,  &colorname[1] },
 		{ "color2",       STRING,  &colorname[2] },
